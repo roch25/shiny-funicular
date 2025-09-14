@@ -1,0 +1,16 @@
+name: Echo Secret Example
+
+on:
+  push:
+    branch:
+    - main
+  workflow_dispatch:
+
+jobs:
+  show-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo secret
+        run: echo "The secret is: $MY_SECRET"
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
