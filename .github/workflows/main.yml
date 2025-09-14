@@ -13,3 +13,11 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
         run: echo "Hello $MY_SECRET"
+      - name: some
+        run: |
+          if [ -z "${{ secrets.MY_SECRET }}" ]; then
+            echo "Secret is not set"
+            exit 1
+          else
+            echo "Secret is configured (length: ${#{{ secrets.MY_SECRET }}})"
+          fi
