@@ -2,7 +2,7 @@ name: Echo Secret Example
 
 on:
   push:
-    branch:
+    branches:
     - main
   workflow_dispatch:
 
